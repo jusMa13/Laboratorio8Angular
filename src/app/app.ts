@@ -15,7 +15,6 @@ export class App implements OnInit {
 
   private apiUrl = 'https://localhost:7134/api/persona';
 
-  // Inyectamos el ChangeDetectorRef en el constructor
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -31,7 +30,6 @@ export class App implements OnInit {
       next: (data) => {
         this.personas = data;
 
-        // CORRECCIÓN: Forzamos a Angular a redibujar la tabla de inmediato
         this.cdr.detectChanges();
       },
       error: (err) => {
